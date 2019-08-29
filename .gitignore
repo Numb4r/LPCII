@@ -30,7 +30,7 @@
 *.exe
 *.out
 *.app
-
+app
 # Zip
 *.zip
 *.rar
@@ -38,3 +38,6 @@
 # Text files
 *.doc
 *.txt
+
+# Conf vscode
+.vscode
