@@ -31,23 +31,6 @@ class Data
             this->setAno(1900 + ltm->tm_year);
         }
         Data(int dia,int mes,int ano){
-            if (dia < 0)
-            {
-                dia*=-1;
-            }else if(dia == 0 || dia > 31){ 
-                dia = 1;
-            }
-            if (mes < 0)
-            {
-                mes*=-1;
-            }else if(mes == 0 || mes > 12){
-                mes = 1;
-            }
-            if (ano < 0){
-                ano *=-1;
-            }else if(ano == 0){
-                ano  = 1900;
-            }
             this->setDia(dia);
             this->setMes(mes);
             this->setAno(ano);
