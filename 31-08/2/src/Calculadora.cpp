@@ -42,7 +42,7 @@ using namespace std;
             case '/':
                 if (this->getSegundoNumero() == 0)
                 {
-                    cerr << "ERROR : IMPOSSIVEL DIVIDIR POR ZERO. RETORNANDO";
+                    cerr << "ERROR : IMPOSSIVEL DIVIDIR POR ZERO. RETORNANDO ";
                     return 0;
                 }else{
                     return this->getPrimeiroNumero()/this->getSegundoNumero();
