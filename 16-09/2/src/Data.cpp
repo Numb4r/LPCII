@@ -40,15 +40,26 @@ int Data::getAno(){
 }
 
 void Data::toNextDay(){
-    this->setDia(this->getDia()+1);
+    if(this->getDia() == 30 || (this->getDia() == 28 && this->getMes() == 2 ) || (this->getDia() == 29 && this->getAno()%4 == 0 )){
+        this->setDia(1);
+        if(this->getMes() == 12){
+            this->setMes(1);
+            this->setAno(this->getAno()+1);
+        }else{
+            this->setMes(this->getMes()+1);
+        }
+
+    }else{
+        this->setDia(this->getDia()+1);
+    }
 }
 
 string Data::toString(){
     string data ;
-    data.append(this->getDia());
+    /*data.append(this->getDia());
     data.append("/");
     data.append(this->getMes());
     data.append("/");
-    data.append(this->getAno());
+    data.append(this->getAno());*/
     return data;
 }
