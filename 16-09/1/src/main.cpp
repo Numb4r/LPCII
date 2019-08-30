@@ -20,7 +20,9 @@ void preencherDados(Empregado *empregado){
 }
 int main()
 {
-    Empregado empregado[2] = {Empregado("","",0),Empregado("","",0)};
+    Empregado *empregado = new Empregado[2];
+    empregado[0]("","",0);
+    int *m = new int[2];
     
     preencherDados(&empregado[0]);
     preencherDados(&empregado[1]);
