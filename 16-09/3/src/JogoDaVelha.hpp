@@ -5,28 +5,34 @@ using namespace std;
 
 class JogoDaVelha{
     private :
-        int matriz[3][3];
+        char matriz[3][3];
+        char pedra;
+        char vitorioso;
+        void setPedra();
+        void setVitorioso(char pedra);
+        
+        
     public:
-        int fazerJogada(int posX,int posY,int jogador);
+        char getPedra();
+        char getVitorioso();
+
+        int fazerJogada(int posX,int posY);
         void mostrarMatriz();
         bool empate();
-        int vitoriaLinha(int posX,int jogador);
-        int vitoriaColuna(int posY,int jogador);
-        int vitoriaDiagonal(int posX,int posY,int jogador);
-        int vitoria(int posX,int posY,int jogador);
+        int vitoriaLinha(int posX);
+        int vitoriaColuna(int posY);
+        int vitoriaDiagonal();
+        int vitoria(int posX,int posY);
+        void iniciarMatriz();
+        
 
-        JogoDaVelha(){
-            for (size_t i = 0; i < 3; i++)
-            {
-                for (size_t j = 0; j < 3; j++)
-                {
-                    this->matriz[i][j] = 0;
-                }
-                
-            }
-            
-
-        }
+    //Construtores    
+    JogoDaVelha(){
+        this->iniciarMatriz();
+        this->setVitorioso(' ');
+        this->setPedra();
+    }
+    
 
 };
 
