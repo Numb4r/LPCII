@@ -21,9 +21,8 @@ void preencherDados(Empregado *empregado){
 int main()
 {
     Empregado *empregado = new Empregado[2];
-    empregado[0]("","",0);
-    int *m = new int[2];
-    
+    empregado[0] = Empregado("","",0);
+    empregado[1] = Empregado("","",0);
     preencherDados(&empregado[0]);
     preencherDados(&empregado[1]);
     cout << "------------------------------------------------"<<endl;
