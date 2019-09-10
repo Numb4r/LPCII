@@ -22,6 +22,7 @@ class Empregado
         void aumentarSalarioPorcentagem(int porcentagem);
     //Construtor
         Empregado(string primeiroNome,string segundoNome,float salarioMensal);
+        Empregado(){};
     
 };
 
