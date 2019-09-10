@@ -1,6 +1,6 @@
-#include<iostream>
-#include"Retangulo.hpp"
-
+#include <iostream>
+#include "Retangulo.hpp"
+using namespace std;
 
 //Getters
 double Retangulo::getAltura(){
@@ -15,6 +15,7 @@ double Retangulo::getLargura(){
 void Retangulo::setAltura(double altura){
     this->altura = altura;
 }
+
 void Retangulo::setLargura(double largura){
     this->largura = largura;
 }
@@ -34,9 +35,10 @@ void Retangulo::decrementarLargura(){
 }
 double Retangulo::calcularPerimetro(){
     //TODO:Descobrir como calcular o perimetro so com a largura e altura
+    return 2*altura+2*largura;
 }
 double Retangulo::calcularArea(){
-    return (altura*largura)/2;
+    return (altura*largura);
 }
 //Construtor
 Retangulo::Retangulo(){
