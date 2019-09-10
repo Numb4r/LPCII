@@ -11,14 +11,15 @@ class Retangulo
         double getAltura();
         double getLargura();
         //Setters
-        void setAltura();
-        void setLargura();
+        void setAltura(double altura);
+        void setLargura(double largura);
+
         void incrementarAltura();
         void incrementarLargura();
         void decrementarAltura();
         void decrementarLargura();
-        double calculaPerimetro();
-        double calculaArea();
+        double calcularPerimetro();
+        double calcularArea();
     //Construtores    
     Retangulo();
     Retangulo(double altura,double largura);
