@@ -38,7 +38,20 @@ int Data::getMes(){
 int Data::getAno(){
     return ano;
 }
+//Construtor
 
+            Data::Data(){
+                time_t  currenttime = time(0);
+                tm* ltm = localtime(&currenttime);
+                this->setDia(ltm->tm_mday);
+                this->setMes(1+ltm->tm_mon);
+                this->setAno(1900 + ltm->tm_year);
+            }
+            Data::Data(int dia,int mes,int ano){
+                this->setDia(dia);
+                this->setMes(mes);
+                this->setAno(ano);
+            }
 void Data::toNextDay(){
     if(this->getDia() == 30 || (this->getDia() == 28 && this->getMes() == 2 ) || (this->getDia() == 29 && this->getAno()%4 == 0 )){
         this->setDia(1);
@@ -63,3 +76,5 @@ string Data::toString(){
     data.append(this->getAno());*/
     return data;
 }
+
+

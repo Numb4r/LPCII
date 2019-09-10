@@ -23,18 +23,9 @@ class Data
         void toNextDay();
 
         //Construtores
-        Data(){
-            time_t  currenttime = time(0);
-            tm* ltm = localtime(&currenttime);
-            this->setDia(ltm->tm_mday);
-            this->setMes(1+ltm->tm_mon);
-            this->setAno(1900 + ltm->tm_year);
-        }
-        Data(int dia,int mes,int ano){
-            this->setDia(dia);
-            this->setMes(mes);
-            this->setAno(ano);
-        }
+        Data();
+        Data(int dia,int mes,int ano);
+            
 
 };
 #endif
