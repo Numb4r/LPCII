@@ -21,11 +21,7 @@ class Empregado
 
         void aumentarSalarioPorcentagem(int porcentagem);
     //Construtor
-        Empregado(string primeiroNome,string segundoNome,float salarioMensal){
-            this->setPrimeiroNome(primeiroNome);
-            this->setSegundoNome(segundoNome);
-            this->setSalarioMensal(salarioMensal);
-        }
+        Empregado(string primeiroNome,string segundoNome,float salarioMensal);
     
 };
 

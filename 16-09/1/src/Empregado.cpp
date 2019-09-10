@@ -32,3 +32,11 @@ float Empregado::getSalarioMensal(){
 void Empregado::aumentarSalarioPorcentagem(int porcentagem){
     this->salarioMensal = this->salarioMensal + this->salarioMensal*porcentagem/100;
 }
+
+//Construtor
+    Empregado::Empregado(string primeiroNome,string segundoNome,float salarioMensal){
+        this->setPrimeiroNome(primeiroNome);   
+        this->setSegundoNome(segundoNome);
+        this->setSalarioMensal(salarioMensal);
+    }
+        
