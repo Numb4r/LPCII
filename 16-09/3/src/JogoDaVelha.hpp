@@ -27,11 +27,7 @@ class JogoDaVelha{
         
 
     //Construtores    
-    JogoDaVelha(){
-        this->iniciarMatriz();
-        this->setVitorioso(' ');
-        this->setPedra();
-    }
+    JogoDaVelha();
     
 
 };

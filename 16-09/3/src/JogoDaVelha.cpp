@@ -21,6 +21,13 @@ char JogoDaVelha::getVitorioso(){
     return vitorioso;
 }
 
+//Construtor
+JogoDaVelha::JogoDaVelha(){
+        this->iniciarMatriz();
+        this->setVitorioso(' ');
+        this->setPedra();
+}
+
 void JogoDaVelha::iniciarMatriz(){
     for (size_t i = 0; i < 3; i++)
     {
