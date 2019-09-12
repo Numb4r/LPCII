@@ -12,6 +12,7 @@ int main()
     cout<<data.getAno()<<endl;
     data.toNextDay();
     cout << data.getDia()<<endl;
+    cout << data.toString()<<endl;
     
     return 0;
 }
