@@ -24,6 +24,7 @@ void Pais::setArea(double area){
 }
 
 //Construtor
+Pais::Pais(){}
 Pais::Pais(string nome,unsigned int populacao,double area){
     this->nome = nome;
     this->populacao = populacao;
