@@ -47,7 +47,12 @@ void Pais::verificarSePaisEIgual(Pais x){
     }else{
         cout << "Os paises sao diferentes"<<endl;
     }
-    
+}
+void Pais::imprimirDados(){
+    cout<<"---------------------------"<<endl;
+    cout <<"Nome :"<< this->nome<<endl;
+    cout <<"Capital :"<< this->capital<<endl;
+    this->verificarFronteiras();
 }
 //Contrutor
 Pais::Pais(){}

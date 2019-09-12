@@ -28,7 +28,7 @@ int main(){
     pais.verificarSePaisEIgual(x);
     x.setNome("A");
     x.verificarSePaisEIgual(pais);
-    pais.verificarFronteiras();
+    pais.imprimirDados();
 
     //fronteiras.clear();
     

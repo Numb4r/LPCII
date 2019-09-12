@@ -21,6 +21,7 @@ class Pais{
         void setCapital(string capital);
         void setDimensao(double dimensao);
         void setFronteira(vector<string> fronteira);
+        void imprimirDados();
         
         void verificarSePaisEIgual(Pais x);
         //Contrutor
