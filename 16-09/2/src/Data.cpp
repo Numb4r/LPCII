@@ -69,11 +69,11 @@ void Data::toNextDay(){
 
 string Data::toString(){
     string data ;
-    /*data.append(this->getDia());
+    data.append(to_string(this->getDia()));
     data.append("/");
-    data.append(this->getMes());
+    data.append(to_string(this->getMes()));
     data.append("/");
-    data.append(this->getAno());*/
+    data.append(to_string(this->getAno()));
     return data;
 }
 
