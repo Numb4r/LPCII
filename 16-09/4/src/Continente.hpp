@@ -1,22 +1,25 @@
 #include <iostream>
 #include "Pais.hpp"
+#include<vector>
 using namespace std;
 #ifndef __CONTINENTE__HPP
 #define __CONTINENTE__HPP
 class Continente{
     private:
         string nome;
-        Pais *paises = new Pais;//TODO:Melhorar os metodos envolvendo paises
+        //Pais *paises = new Pais;//TODO:Melhorar os metodos envolvendo paises
+        vector<Pais> paises;
     public:
         //Getters
         string getNome();
-        Pais getPaises();
+        vector<Pais> getPaises();
+        Pais getPaisById(int id);
         //Setters
         void setNome(string nome);
-        void setPaises(Pais *paises);
+        void setPaises(vector<Pais> paises);
         //Construtor
         Continente(string nome);
-        Continente(string nome,Pais *paises);
+        Continente(string nome,vector<Pais> paises);
 
         double getDimensaoContinente();
         int getPopulacaoContinente();
