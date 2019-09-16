@@ -63,7 +63,7 @@ Retornara 3 se foi possivel fazer a jogada,mas houve empate
 int JogoDaVelha::fazerJogada(int posX,int posY){
    
         
-    if (this->matriz[posX][posY] == '*')
+    if (this->matriz[posX][posY] == '*' && posY < 3 && posY >=0)
     {
         this-> matriz[posX][posY] = this->getPedra();
          if (this->vitoria(posX,posY) == 2)
