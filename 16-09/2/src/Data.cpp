@@ -55,7 +55,6 @@ Data::Data(int dia,int mes,int ano){
 void Data::toNextDay(){
     if(this->getDia() == 30 || (this->getDia() == 28 && this->getMes() == 2 ) || (this->getDia() == 29 && this->mes == 2 && this->getAno()%4 == 0 )){
         this->setDia(1);
-        this->mes+=1;
         if(this->getMes() == 12){
             this->setMes(1);
             this->setAno(this->getAno()+1);
