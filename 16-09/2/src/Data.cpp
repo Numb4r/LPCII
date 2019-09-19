@@ -40,21 +40,22 @@ int Data::getAno(){
 }
 //Construtor
 
-            Data::Data(){
-                time_t  currenttime = time(0);
-                tm* ltm = localtime(&currenttime);
-                this->setDia(ltm->tm_mday);
-                this->setMes(1+ltm->tm_mon);
-                this->setAno(1900 + ltm->tm_year);
-            }
-            Data::Data(int dia,int mes,int ano){
-                this->setDia(dia);
-                this->setMes(mes);
-                this->setAno(ano);
-            }
+Data::Data(){
+    time_t  currenttime = time(0);
+    tm* ltm = localtime(&currenttime);
+    this->setDia(ltm->tm_mday);
+    this->setMes(1+ltm->tm_mon);
+    this->setAno(1900 + ltm->tm_year);
+}
+Data::Data(int dia,int mes,int ano){
+    this->setDia(dia);
+    this->setMes(mes);
+    this->setAno(ano);
+}
 void Data::toNextDay(){
-    if(this->getDia() == 30 || (this->getDia() == 28 && this->getMes() == 2 ) || (this->getDia() == 29 && this->getAno()%4 == 0 )){
+    if(this->getDia() == 30 || (this->getDia() == 28 && this->getMes() == 2 ) || (this->getDia() == 29 && this->mes == 2 && this->getAno()%4 == 0 )){
         this->setDia(1);
+        this->mes+=1;
         if(this->getMes() == 12){
             this->setMes(1);
             this->setAno(this->getAno()+1);
@@ -63,7 +64,7 @@ void Data::toNextDay(){
         }
 
     }else{
-        this->setDia(this->getDia()+1);
+        this->dia+=1;
     }
 }
 
