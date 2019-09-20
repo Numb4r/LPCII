@@ -6,7 +6,7 @@ void Data::setDia(int dia){
     if (dia < 0)
     {
         dia*=-1;
-    }else if(dia == 0 || dia > 31){ 
+    }else if(dia == 0 || dia > 30){ 
         dia = 1;
     }
     this->dia = dia;    
