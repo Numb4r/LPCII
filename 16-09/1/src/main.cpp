@@ -16,13 +16,10 @@ void preencherDados(Empregado *empregado){
     empregado->setSegundoNome(segundoNome);
     empregado->setSalarioMensal(salario);
     cout << "------------------------------------------------"<<endl;
-     
 }
 int main()
 {
     Empregado *empregado = new Empregado[2];
-    empregado[0] = Empregado("","",0);
-    empregado[1] = Empregado("","",0);
     preencherDados(&empregado[0]);
     preencherDados(&empregado[1]);
     cout << "------------------------------------------------"<<endl;
@@ -30,16 +27,10 @@ int main()
     cout <<"Salario Anual                   :"<< empregado[0].getSalarioMensal()*12<<endl;
     empregado[0].aumentarSalarioPorcentagem(10);
     cout <<"Salario Anual Reajustado        :"<< empregado[0].getSalarioMensal()*12<<endl;
-    
     cout << "------------------------------------------------"<<endl;
     cout <<"Nome                            :"<< empregado[1].getPrimeiroNome() <<" "<< empregado[1].getSegundoNome()<<endl;
     cout <<"Salario Anual                   :"<<empregado[1].getSalarioMensal()*12<<endl;
     empregado[1].aumentarSalarioPorcentagem(10);
     cout <<"Salario Anual Reajustado        :"<< empregado[1].getSalarioMensal()*12<<endl;
-    
-    
-    
-    /*cout <<"Nome :"<< empregado.getPrimeiroNome() << " " << empregado.getSegundoNome()<<endl;
-    cout << "Salario :"<< empregado.getSalarioMensal()<<endl;*/
     return 0;
 }

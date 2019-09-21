@@ -10,12 +10,9 @@ class JogoDaVelha{
         char vitorioso;
         void setPedra();
         void setVitorioso(char pedra);
-        
-        
     public:
         char getPedra();
         char getVitorioso();
-
         int fazerJogada(int posX,int posY);
         void mostrarMatriz();
         bool empate();
@@ -24,13 +21,7 @@ class JogoDaVelha{
         int vitoriaDiagonal();
         int vitoria(int posX,int posY);
         void iniciarMatriz();
-        
-
     //Construtores    
     JogoDaVelha();
-    
-
 };
-
-
 #endif

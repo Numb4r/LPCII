@@ -39,7 +39,6 @@ int Data::getAno(){
     return ano;
 }
 //Construtor
-
 Data::Data(){
     time_t  currenttime = time(0);
     tm* ltm = localtime(&currenttime);
@@ -66,9 +65,8 @@ void Data::toNextDay(){
         this->dia+=1;
     }
 }
-
 string Data::toString(){
-    string data ;
+    string data;
     data.append(to_string(this->getDia()));
     data.append("/");
     data.append(to_string(this->getMes()));

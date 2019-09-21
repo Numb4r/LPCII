@@ -13,24 +13,15 @@ class Retangulo
         //Setters
         void setAltura(double altura);
         void setLargura(double largura);
-
         void incrementarAltura();
         void incrementarLargura();
         void decrementarAltura();
         void decrementarLargura();
         double calcularPerimetro();
         double calcularArea();
-    //Construtores    
-    Retangulo();
-    Retangulo(double altura,double largura);
-
+        //Construtores    
+        Retangulo();
+        Retangulo(double altura,double largura);
 };
-
-/*Crie um método para incrementar a altura em 1.
-j. Crie um método para incrementar a largura em 1.
-k. Crie um método para decrementar a altura em 1.
-l. Crie um método para decrementar a largura em 1.
-m. Crie um método retornar o perímetro do retângulo.
-n. Crie um método retornar a área do retângulo*/
 
 #endif

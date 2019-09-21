@@ -7,7 +7,6 @@ using namespace std;
 class Continente{
     private:
         string nome;
-        //Pais *paises = new Pais;//TODO:Melhorar os metodos envolvendo paises
         vector<Pais> paises;
     public:
         //Getters
@@ -20,7 +19,6 @@ class Continente{
         //Construtor
         Continente(string nome);
         Continente(string nome,vector<Pais> paises);
-
         double getDimensaoContinente();
         int getPopulacaoContinente();
         double getDensidadePopulacaoContinente();

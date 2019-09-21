@@ -11,7 +11,6 @@ int Pais::getPopulacao(){
 double Pais::getArea(){
     return area;
 }
-
 //Setters
 void Pais::setNome(string nome){
     this->nome = nome;
@@ -22,7 +21,6 @@ void Pais::setPopulacao(unsigned int populacao){
 void Pais::setArea(double area){
     this->area = area < 0 ? -1*area : area;
 }
-
 //Construtor
 Pais::Pais(){}
 Pais::Pais(string nome,unsigned int populacao,double area){

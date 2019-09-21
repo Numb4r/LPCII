@@ -9,18 +9,13 @@ double Retangulo::getAltura(){
 double Retangulo::getLargura(){
     return largura;
 }
-
 //Setters
-
 void Retangulo::setAltura(double altura){
     this->altura = altura;
 }
-
 void Retangulo::setLargura(double largura){
     this->largura = largura;
 }
-
-
 void Retangulo::incrementarAltura(){
     altura+=1;
 }

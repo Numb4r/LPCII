@@ -13,6 +13,5 @@ int main()
     data.toNextDay();
     cout << data.getDia()<<endl;
     cout << data.toString()<<endl;
-    
     return 0;
 }

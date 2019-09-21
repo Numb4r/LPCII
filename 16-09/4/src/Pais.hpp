@@ -8,7 +8,6 @@ class Pais
         string nome;
         int populacao;
         double area;
-
     public:
         //Getters
         string getNome();
@@ -21,7 +20,5 @@ class Pais
         //Construtor
         Pais();
         Pais(string nome,unsigned int populaco,double area);
-
 };
-
 #endif

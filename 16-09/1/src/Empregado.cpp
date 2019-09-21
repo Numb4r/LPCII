@@ -16,7 +16,6 @@ void Empregado::setSalarioMensal(float salarioMensal){
     }else{
         this->salarioMensal = 0;
     }
-
 }
 //Getters
 string Empregado::getPrimeiroNome(){
@@ -28,15 +27,13 @@ string Empregado::getSegundoNome(){
 float Empregado::getSalarioMensal(){
     return salarioMensal;
 }
-
 void Empregado::aumentarSalarioPorcentagem(int porcentagem){
     this->salarioMensal = this->salarioMensal + this->salarioMensal*porcentagem/100;
 }
-
 //Construtor
-    Empregado::Empregado(string primeiroNome,string segundoNome,float salarioMensal){
-        this->setPrimeiroNome(primeiroNome);   
-        this->setSegundoNome(segundoNome);
-        this->setSalarioMensal(salarioMensal);
-    }
+Empregado::Empregado(string primeiroNome,string segundoNome,float salarioMensal){
+    this->setPrimeiroNome(primeiroNome);   
+    this->setSegundoNome(segundoNome);
+    this->setSalarioMensal(salarioMensal);
+}
         

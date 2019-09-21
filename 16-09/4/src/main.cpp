@@ -9,7 +9,7 @@ Pais inserirPais(){
     string nome;
     int populacao;
     double area;
-    cout<<"\n\nEntre com o nome do pais : ";
+    cout<<"\nEntre com o nome do pais : ";
     cin >> nome;
     cout << "Entre com a populacao do pais : ";
     cin>>populacao;
@@ -38,7 +38,6 @@ Continente inserirContinente(){
 int main()
 {
     Continente continente = inserirContinente();
-    
     cout <<"\n\nNome do continente : "<< continente.getNome()<<endl;
     cout <<"Populacao do continente : "<< continente.getPopulacaoContinente()<<endl;
     cout << "Area do continente : "<<continente.getDimensaoContinente()<<endl;
@@ -50,8 +49,5 @@ int main()
     cout << "-------- Menor --------"<<endl;
     cout <<"Dimensao : "<<continente.getPaisMenorDimensaoTerritorial().getNome()<<" - "<<continente.getPaisMenorDimensaoTerritorial().getArea()<<endl;
     cout <<"Populacao : "<<continente.getPaisMenorPopulacao().getNome()<<" - "<<continente.getPaisMenorPopulacao().getPopulacao()<<endl;
-    
-    
-
     return 0;
 }

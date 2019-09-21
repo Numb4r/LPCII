@@ -18,14 +18,10 @@ class Data
         int getDia();
         int getMes();
         int getAno();
-
         string toString();
         void toNextDay();
-
         //Construtores
         Data();
         Data(int dia,int mes,int ano);
-            
-
 };
 #endif
