@@ -94,11 +94,11 @@ int JogoDaVelha::vitoriaDiagonal(){
     Retornara 2 caso de empate
 */
 int  JogoDaVelha::vitoria(int posX,int posY){
-    if (this->empate() == true)
-        return 2;
     if(this->vitoriaLinha(posX) || this->vitoriaColuna(posY) ||this->vitoriaDiagonal()){
         this->setVitorioso(this->getPedra());
         return 1;
     }
+    if (this->empate() == true)
+        return 2;
     return 0;
 }
