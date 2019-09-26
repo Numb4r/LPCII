@@ -1,32 +1,34 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
 #ifndef __PAIS_HPP
 #define __PAIS_HPP
-#include <string>
-#include <vector>
-using namespace std;
 class Pais{
     private:
         string nome;
-        string nomeCapital;
-        double populacao;
-        double area;
-        // Pais *fronteira[5];
-        vector<Pais> fronteira;
+        string capital;
+        vector<string> paisesFronteira;
+        double dimensao;
+        float populacao;
     public:
-        //Getters   
+        //Getters
         string getNome();
-        string getNomeCapital();
-        double getPopulacao();
-        double getArea();
-        vector<Pais> getFronteira();
+        string getCapital();
+        double getDimensao();
+        float getPopulacao();
+        void verificarFronteiras();
         //Setters
         void setNome(string nome);
-        void setNomeCapital(string nomeCapital);
-        void setPopulacao(double populacao);
-        void setArea(double area);
-        vector<Pais> getFronteira(vector<Pais> fronteira);
-        Pais getFronteiraById(int id);
-        //Contrutores
-        Pais(string nome,string nomeCapital,double populacao,double area,vector<Pais> fronteira);
+        void setPopulacao(float populacao);
+        void setCapital(string capital);
+        void setDimensao(double dimensao);
+        void setFronteira(vector<string> fronteira);
+        void imprimirDados();
+        int crecimentoPopulacional(Pais x,Pais y);
+        bool verificarSePaisEIgual(Pais x);
+        //Contrutor
         Pais();
+        Pais(string nome,string capital,vector<string> paisFronteira,float populacao,double dimensao);
 };
 #endif
