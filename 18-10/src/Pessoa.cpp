@@ -15,7 +15,7 @@ void Pessoa::setNome(string nome){
     this->nome = nome;
 }
 void Pessoa::setEndereco(string endereco){
-    this->endereco;
+    this->endereco = endereco;
 }
 
 //Construtores
