@@ -69,14 +69,51 @@ void Curso::cadastrarAluno(){
     this->alunos.push_back(aluno);
 }
 void Curso::cadastrarDisciplina(){
-
+    string nome,professor;
+    int ch;
+    cout<<"Entre com o nome da disciplina"<<endl;
+    getline(cin,nome);
+    cout<<"Entre com a carga horaria da disciplina"<<endl;
+    cin.ignore;
+    cin>>ch;
+    if (!this->professores.empty())
+    {
+        cout<<"Entre com o nome do professor"<<endl;
+        while(professor.empty() && this->professores.)
+        {
+            getline(cin,professor);
+        }   
+    }
+    
 }
 void Curso::imprimirListaDeProfessores(){
-
+    for (int i = 0; i < this->professores.size(); i++)
+    {
+        cout<<"--------------------------------------------------"<<endl;
+        cout<<"Nome: "<<professores.at(i).getNome()<<endl;
+        cout<<"Endereco: "<<professores.at(i).getEndereco()<<endl;
+        cout<<"Curso: "<<professores.at(i).getCurso()<<endl;
+        cout<<"Titulacao: "<<professores.at(i).getTitulacao()<<endl;
+    }
+    cout<<"--------------------------------------------------"<<endl;
 }
 void Curso::imprimirListaDeAlunos(){
-
+    for (int i = 0; i < this->alunos.size(); i++)
+    {
+        cout<<"--------------------------------------------------"<<endl;
+        cout<<"Matricula: "<<alunos.at(i).getMatricula()<<endl;
+        cout<<"Nome: "<<alunos.at(i).getNome()<<endl;
+        cout<<"Endereco: "<<alunos.at(i).getEndereco()<<endl;
+    }
+    cout<<"--------------------------------------------------"<<endl;
 }
 void Curso::imprimirListaDeDisciplinas(){
-
+    for (int i = 0; i < this->disciplinas.size(); i++)
+    {
+        cout<<"--------------------------------------------------"<<endl;
+        cout<<"Nome: "<<disciplinas.at(i).getNome()<<endl;
+        cout<<"Carga Horaria: "<<disciplinas.at(i).getCH()<<endl;
+        cout<<"Professor: "<<disciplinas.at(i).getProfessor().getNome()<<endl;
+    }
+    cout<<"--------------------------------------------------"<<endl;
 }
