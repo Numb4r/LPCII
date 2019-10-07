@@ -1,7 +1,8 @@
 #include <string>
 using namespace std;
-#ifndef _PESSOA_HPP
+#ifndef __PESSOA_HPP
 #define __PESSOA_HPP
+// #pragma once
 class Pessoa{
     protected:
         Pessoa();
