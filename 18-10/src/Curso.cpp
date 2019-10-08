@@ -59,7 +59,6 @@ void Curso::cadastrarDisciplina(){
     cout<<"Entre com o nome da disciplina"<<endl;
     getline(cin,nome);
     cout<<"Entre com a carga horaria da disciplina"<<endl;
-    cin.ignore();
     cin>>ch;
     if (!this->professores.empty())
     {
@@ -128,7 +127,11 @@ void Curso::imprimirListaDeDisciplinas(){
             cout<<"--------------------------------------------------"<<endl;
             cout<<"Nome: "<<disciplinas.at(i).getNome()<<endl;
             cout<<"Carga Horaria: "<<disciplinas.at(i).getCH()<<endl;
-            cout<<"Professor: "<<disciplinas.at(i).getProfessor().getNome()<<endl;
+            if(!disciplinas.at(i).getProfessor().getNome().empty()){
+                cout<<"Professor: "<<disciplinas.at(i).getProfessor().getNome()<<endl;
+            }else{
+                cout<<"Professor: Ainda nao cadastrado"<<endl;
+            }
         }
         cout<<"--------------------------------------------------"<<endl;
     }else{
