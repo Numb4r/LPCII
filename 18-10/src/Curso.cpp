@@ -15,7 +15,7 @@ void Curso::cadastrarProfessor(){
     cout<<"Entre com os titulos do professor"<<endl;
     cout<<"0.Sem titulo\n1.Tecnólogo\n2.Bacharelado\n3.Licenciatura\n4.Mestrado\n5.Doutorado"<<endl;
     getline(cin,escTitulo);
-    for (int i = 0; i < escTitulo.size(); i++)
+    for (long unsigned int i = 0; i < escTitulo.size(); i++)
         if (!titulos[(int)escTitulo.at(i)])
             titulos[(int)escTitulo.at(i)];
     if (!titulos[0])
@@ -69,51 +69,89 @@ void Curso::cadastrarAluno(){
     this->alunos.push_back(aluno);
 }
 void Curso::cadastrarDisciplina(){
-    string nome,professor;
-    int ch;
+    string nome;
+    int ch,escProfessor = -2;
     cout<<"Entre com o nome da disciplina"<<endl;
     getline(cin,nome);
     cout<<"Entre com a carga horaria da disciplina"<<endl;
-    cin.ignore;
+    cin.ignore();
     cin>>ch;
     if (!this->professores.empty())
     {
-        cout<<"Entre com o nome do professor"<<endl;
-        while(professor.empty() && this->professores.)
+        cout<<"Entre com o numero do professor que deseja adicionar"<<endl;
+        cout<<"(Entre com -1 para deixar em branco"<<endl;
+        for (long unsigned int i = 0; i < this->professores.size(); i++)
         {
-            getline(cin,professor);
-        }   
+            cout<<i+1<<". "<<professores.at(i).getNome()<<endl;
+        }
+        while (escProfessor < -1 || escProfessor > (int)(professores.size()+1))
+        {
+            cin>>escProfessor;
+        }
     }
-    
+    if (escProfessor == -1 || professores.size()==0)
+    {
+        Disciplina disciplina = Disciplina(nome,ch);
+        this->disciplinas.push_back(disciplina);
+    }else{
+        Disciplina disciplina = Disciplina(nome,ch,professores.at(escProfessor-1));
+        this->disciplinas.push_back(disciplina);
+    }   
 }
 void Curso::imprimirListaDeProfessores(){
-    for (int i = 0; i < this->professores.size(); i++)
-    {
+  if (!this->professores.empty())
+  {
+        for (long unsigned int i = 0; i < this->professores.size(); i++)
+        {
+            cout<<"--------------------------------------------------"<<endl;
+            cout<<"Nome: "<<professores.at(i).getNome()<<endl;
+            cout<<"Endereco: "<<professores.at(i).getEndereco()<<endl;
+            cout<<"Curso: "<<professores.at(i).getCurso()<<endl;
+            cout<<"Titulacao: "<<professores.at(i).getTitulacao()<<endl;
+        }
         cout<<"--------------------------------------------------"<<endl;
-        cout<<"Nome: "<<professores.at(i).getNome()<<endl;
-        cout<<"Endereco: "<<professores.at(i).getEndereco()<<endl;
-        cout<<"Curso: "<<professores.at(i).getCurso()<<endl;
-        cout<<"Titulacao: "<<professores.at(i).getTitulacao()<<endl;
-    }
-    cout<<"--------------------------------------------------"<<endl;
+  }else{
+        cout<<"--------------------------------------------------"<<endl;
+        cout<<"Ainda nao foi cadastrado nenhum professor"<<endl;
+        cout<<"--------------------------------------------------"<<endl;
+  }
+  
 }
 void Curso::imprimirListaDeAlunos(){
-    for (int i = 0; i < this->alunos.size(); i++)
+    if (!this->alunos.empty())
     {
+        for (long unsigned int i = 0; i < this->alunos.size(); i++)
+        {
+            cout<<"--------------------------------------------------"<<endl;
+            cout<<"Matricula: "<<alunos.at(i).getMatricula()<<endl;
+            cout<<"Nome: "<<alunos.at(i).getNome()<<endl;
+            cout<<"Endereco: "<<alunos.at(i).getEndereco()<<endl;
+        }
         cout<<"--------------------------------------------------"<<endl;
-        cout<<"Matricula: "<<alunos.at(i).getMatricula()<<endl;
-        cout<<"Nome: "<<alunos.at(i).getNome()<<endl;
-        cout<<"Endereco: "<<alunos.at(i).getEndereco()<<endl;
+    }else{
+        cout<<"--------------------------------------------------"<<endl;
+        cout<<"Ainda nao foi cadastrado nenhum aluno"<<endl;
+        cout<<"--------------------------------------------------"<<endl;
+
     }
-    cout<<"--------------------------------------------------"<<endl;
+    
+    
 }
 void Curso::imprimirListaDeDisciplinas(){
-    for (int i = 0; i < this->disciplinas.size(); i++)
+    if (!this->disciplinas.empty())
     {
+        for (long unsigned int i = 0; i < this->disciplinas.size(); i++)
+        {
+            cout<<"--------------------------------------------------"<<endl;
+            cout<<"Nome: "<<disciplinas.at(i).getNome()<<endl;
+            cout<<"Carga Horaria: "<<disciplinas.at(i).getCH()<<endl;
+            cout<<"Professor: "<<disciplinas.at(i).getProfessor().getNome()<<endl;
+        }
         cout<<"--------------------------------------------------"<<endl;
-        cout<<"Nome: "<<disciplinas.at(i).getNome()<<endl;
-        cout<<"Carga Horaria: "<<disciplinas.at(i).getCH()<<endl;
-        cout<<"Professor: "<<disciplinas.at(i).getProfessor().getNome()<<endl;
+    }else{
+        cout<<"--------------------------------------------------"<<endl;
+        cout<<"Ainda nao foi cadastrada nenhuma disciplina"<<endl;
+        cout<<"--------------------------------------------------"<<endl;
     }
-    cout<<"--------------------------------------------------"<<endl;
+    
 }
