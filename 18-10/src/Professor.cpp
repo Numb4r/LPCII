@@ -1,7 +1,5 @@
 #include "Professor.hpp"
 
-
-
 //Getters
 std::string Professor::getTitulacao(){
     return titulacao;

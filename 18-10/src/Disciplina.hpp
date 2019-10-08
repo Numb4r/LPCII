@@ -9,7 +9,6 @@ private:
     string nome;
     int ch;
     Professor professor;
-
 public:
     //Getters
     string getNome();

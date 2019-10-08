@@ -11,5 +11,4 @@ void Aluno::setMatricula(int matricula){
 //Construtor
 Aluno::Aluno(int matricula,string nome,string endereco):Pessoa(nome,endereco){
     this->matricula = matricula;
-
 }

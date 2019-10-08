@@ -13,8 +13,4 @@ public:
     //Construtor
     Aluno(int matricula,string nome,string endereco);
 };
-
-
-
-
 #endif

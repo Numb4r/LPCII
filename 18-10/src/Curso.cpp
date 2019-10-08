@@ -134,8 +134,6 @@ void Curso::imprimirListaDeAlunos(){
         cout<<"--------------------------------------------------"<<endl;
 
     }
-    
-    
 }
 void Curso::imprimirListaDeDisciplinas(){
     if (!this->disciplinas.empty())
@@ -153,5 +151,4 @@ void Curso::imprimirListaDeDisciplinas(){
         cout<<"Ainda nao foi cadastrada nenhuma disciplina"<<endl;
         cout<<"--------------------------------------------------"<<endl;
     }
-    
 }

@@ -14,7 +14,6 @@ public:
     //Setters
     void setTitulacao(string titulacao);
     void setCurso(string curso);
-
     //Construtor
     Professor();
     Professor(string titulacao,string curso,string nome,string endereco);

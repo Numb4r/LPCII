@@ -2,7 +2,6 @@
 #include <string>
 using namespace std;
 
-
 //Pessoa::getters
 string Pessoa::getNome(){
     return nome;
@@ -17,7 +16,6 @@ void Pessoa::setNome(string nome){
 void Pessoa::setEndereco(string endereco){
     this->endereco = endereco;
 }
-
 //Construtores
 Pessoa::Pessoa(){}
 Pessoa::Pessoa(string nome,string endereco){
