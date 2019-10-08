@@ -7,7 +7,6 @@ string Curso::getNome(){
 }
 void Curso::cadastrarProfessor(){
     string nome,endereco,titulacao,curso, escTitulo;
-    bool titulos[5];
     cout<<"Entre com o nome do professor"<<endl;
     getline(cin,nome);
     cout<<"Entre com o endereco do professor"<<endl;
@@ -15,41 +14,27 @@ void Curso::cadastrarProfessor(){
     cout<<"Entre com os titulos do professor"<<endl;
     cout<<"0.Sem titulo\n1.Tecnólogo\n2.Bacharelado\n3.Licenciatura\n4.Mestrado\n5.Doutorado"<<endl;
     getline(cin,escTitulo);
-    for (long unsigned int i = 0; i < escTitulo.size(); i++)
-        if (!titulos[(int)escTitulo.at(i)])
-            titulos[(int)escTitulo.at(i)];
-    if (!titulos[0])
+    if (escTitulo.find("0") == string::npos)
     {
-        for (int i = 1; i < 5; i++)
+        if (escTitulo.find("1") != string::npos)
+            titulacao+="Tecnólogo/";
+        if (escTitulo.find("2") != string::npos)
+            titulacao+="Bacharelado/";
+
+        if (escTitulo.find("3") != string::npos)
+            titulacao+="Licenciatura/";
+
+        if (escTitulo.find("4") != string::npos)
+            titulacao+="Mestrado/";
+
+        if (escTitulo.find("5") != string::npos)
+            titulacao+="Doutorado";
+         if (titulacao.back()=='/')
         {
-            if (titulos[i])
-            {
-                switch (i)
-                {
-                case 1:
-                    titulacao+="Tecnólogo/";
-                    break;
-                case 2:
-                    titulacao+="Bacharelado/";
-                    break;
-                case 3:
-                    titulacao+="Licenciatura/";
-                    break;
-                case 4:
-                    titulacao+="Mestrado/";
-                    break;
-                case 5:
-                    titulacao+="Doutorado";
-                    break;
-                }
-            }
-        }
-        if (titulacao.back()=='/')
-        {
-            titulacao.erase(titulacao.back());
+            titulacao.erase(titulacao.size()-1);
         }
     }else{
-        titulacao="Sem Titulos";
+        titulacao = "Sem Titulo";
     }
     cout<<"Entre com o curso do professor"<<endl;
     getline(cin,curso);
