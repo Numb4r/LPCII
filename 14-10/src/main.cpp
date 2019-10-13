@@ -46,8 +46,10 @@ Aluno cadastrarAluno(){
 }
 int main(){
     Curso curso = initCurso();
-    curso.addAluno(cadastrarAluno());
+    for (size_t i = 0; i < 10; i++)
+    {
+        curso.addAluno(cadastrarAluno());
+    }
     curso.mostrarAlunos();
-    curso.mostrarDisciplinas();
     return 0;
 }
