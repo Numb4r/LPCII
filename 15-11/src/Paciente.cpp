@@ -32,3 +32,4 @@ Paciente::Paciente(std::string nome,char sexo,std::string endereco,int cpf,std::
     this->dataUltimaConsulta = dataUltimaConsulta;
     this->medicacaoQueToma = medicacaoQueToma;
 }
+Paciente::Paciente(){}

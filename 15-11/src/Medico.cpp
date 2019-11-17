@@ -23,3 +23,4 @@ Medico::Medico(std::string nome,char sexo,std::string endereco,int cpf,std::stri
     this->CRM = CRM;
     this->especialidade = especialidade;
 }
+Medico::Medico(){}

@@ -153,3 +153,4 @@ Consultorio::Consultorio(std::string nome,std::string endereco,std::string telef
     this->endereco = endereco;
     this->telefone = telefone;
 }
+Consultorio::Consultorio(){}

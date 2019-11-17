@@ -50,3 +50,4 @@ Pessoa::Pessoa(std::string nome,char sexo,std::string endereco,int cpf,std::stri
     this->telefone = telefone;
     this->identidade = identidade;
 }
+Pessoa::Pessoa(){}

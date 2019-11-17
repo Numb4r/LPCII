@@ -38,3 +38,4 @@ Consulta::Consulta(std::string data,std::string hora,Medico medico,Paciente paci
     this->medico = medico;
     this->paciente = paciente;
 }
+Consulta::Consulta(){}
