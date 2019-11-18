@@ -33,6 +33,7 @@ void dashboardGUI(){
 }
 void imprimirListaConsultaMedico(){
     int crm;
+    consultorio.imprimirListaMedicos();
     cout<<"Entre com o crm do medico:";
     cin>>crm;
     consultorio.imprimirListaConsultasMedico(crm);
@@ -40,9 +41,9 @@ void imprimirListaConsultaMedico(){
 
 void removerMedico(){
     int crm;
+    consultorio.imprimirListaMedicos();
     cout<<"Digite o CRM do medico a ser removido:"; 
     cin>>crm;
-    // cout<< consultorio.removerMedico(crm) == true  ? "Removido com sucesso" : "Nao foi possivel remover,medico nao cadastrado";
     if(consultorio.removerMedico(crm))
         cout << "Removido com sucesso"<<endl;
     else
@@ -52,10 +53,9 @@ void removerMedico(){
 }
 void removerPaciente(){
     int cpf;
+    consultorio.imprimirListaPacientes();
     cout<<"Digite o CPF do paciente:";
     cin>>cpf;
-    // cout<< consultorio.removerPaciente(cpf) ? "Removido com sucesso" : "Nao foi possivel remover,paciente nao cadastrado";
-    // cout<<endl;
      if(consultorio.removerPaciente(cpf))
         cout << "Removido com sucesso"<<endl;
     else
@@ -65,8 +65,6 @@ void removerConsulta(){
     int cpf,crm;
     cout<<"Entre com o cpf do paciente e o crm do medico para remover a consulta:";
     cin>>cpf>>crm;
-    // cout<<consultorio.removerConsulta(crm,cpf) ? "Removido com sucesso" : "Nao foi possivel remover,informacoes nao sao validas";
-    // cout<<endl;
      if(consultorio.removerConsulta(crm,cpf))
         cout << "Removido com sucesso"<<endl;
     else
@@ -80,12 +78,14 @@ void cadastroPaciente(){
     getline(cin,nome);
     cout<<"Sexo:";
     cin>>sexo;
+    cin.ignore();
     cout<<"Endereco:";
     getline(cin,endereco);
     cout<<"Identidade:";
     getline(cin,identidade);
     cout<<"CPF:";
     cin>>cpf;
+    cin.ignore();
     cout<<"Relato:";
     getline(cin,relato);
     cout<<"Data da Ultima Consulta:";
@@ -103,14 +103,17 @@ void cadastroMedico(){
     getline(cin,nome);
     cout<<"Sexo:";
     cin>>sexo;
+    cin.ignore();
     cout<<"Endereco:";
     getline(cin,endereco);
     cout<<"Identidade:";
     getline(cin,identidade);
     cout<<"CPF:";
     cin>>cpf;
+    cin.ignore();
     cout<<"CRM:";
     cin>>crm;
+    cin.ignore();
     cout<<"Especialidade:";
     getline(cin,especialidade);
     Medico medico =  Medico(nome,sexo,endereco,cpf,telefone,identidade,crm,especialidade);
@@ -136,6 +139,7 @@ void menu(){
     {
         dashboardGUI();
         cin>>aux;
+        cin.ignore();
         switch (aux)
         {
         case 1:
