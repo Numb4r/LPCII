@@ -30,7 +30,10 @@ bool Consultorio::removerMedico(int CRM){
     return false;
 }
 void Consultorio::cadastrarConsulta(Consulta consulta){
-    vetConsulta.push_back(consulta);
+    if (this->vetMedicos.size() != 0 || this->vetPacientes.size() != 0)
+        vetConsulta.push_back(consulta);
+    else
+        cout<<"Nao foi possivel cadastrar a consulta,nao existem pacientes ou medicos cadastrados"<<endl;
 }
 bool Consultorio::removerConsultaByCPF(int cpf,std::string data ){
     
@@ -69,14 +72,14 @@ bool Consultorio::removerConsultaByCRM(int crm,std::string data ){
 void Consultorio::imprimirListaPacientes(){
     for (long unsigned int i = 0; i < vetPacientes.size(); i++)
     {
-        cout<<vetPacientes.at(i).getNome()<<endl;
+        vetPacientes.at(i).imprimir();
         
     }
 }
 void Consultorio::imprimirListaMedicos(){
     for (long unsigned int i = 0; i < vetMedicos.size(); i++)
     {
-        cout<<vetMedicos.at(i).getNome()<<endl;
+        vetMedicos.at(i).imprimir();
     }
 }
 void Consultorio::imprimirListaConsultas(){
