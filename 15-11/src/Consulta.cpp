@@ -29,8 +29,7 @@ void Consulta::setPaciente(Paciente paciente){
 void Consulta::imprimir(){
     cout<<"Data: "<<data<<endl;
     cout<<"Hora: "<<hora<<endl;
-    cout<<"Medico: "<<medico.getNome();
-    cout<<"Paciente: "<<paciente.getNome();
+    cout<<"Medico: "<<medico.getNome() << " Paciente: "<<paciente.getNome();
 }
 Consulta::Consulta(std::string data,std::string hora,Medico medico,Paciente paciente){
     this->data = data;
