@@ -21,7 +21,14 @@ void Pessoa::setNome(std::string nome){
     this->nome = nome;
 }
 void Pessoa::setSexo(char sexo){
-    this->sexo = sexo;
+    
+    if (toupper(sexo) == 'M' || toupper(sexo) == 'F')
+    {
+        this->sexo = sexo;
+    }else{
+        throw ExcecaoSexoInvalido();
+    }
+    
 }
 void Pessoa::setCPF(int cpf){
     this->cpf = cpf;
@@ -32,7 +39,12 @@ void Pessoa::setTelefone(std::string telefone){
 void Pessoa::setIdentidade(std::string identidade){
     this->identidade = identidade;
 }
-
+std::string Pessoa::getEndereco(){
+    return endereco;
+}
+void Pessoa::setEndereco(std::string endereco){
+    this->endereco = endereco;
+}
 void Pessoa::imprimir(){
     cout<<"Nome: "<< nome<<endl;
     cout<<"Sexo: "<<sexo<<endl;

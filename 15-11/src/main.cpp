@@ -4,9 +4,15 @@
 #include "Medico.hpp"
 #include "Paciente.hpp"
 #include "Pessoa.hpp"
+#include "ExcecaoMedicoInexistente.hpp"
+#include "ExcecaoConsultaInexistente.hpp"
+#include "ExcecaoSexoInvalido.hpp"
+#include "ExcecaoPacienteInexistente.hpp"
 #include <string>
 using namespace std;
 Consultorio consultorio;
+// Medico medico = Pessoa();
+
 Consultorio  init(){
     std::string nome,telefone,endereco;
     cout << "Entre com o nome do consultorio"<<endl;
@@ -44,79 +50,124 @@ void removerMedico(){
     consultorio.imprimirListaMedicos();
     cout<<"Digite o CRM do medico a ser removido:"; 
     cin>>crm;
-    if(consultorio.removerMedico(crm))
-        cout << "Removido com sucesso"<<endl;
-    else
-        cout << "Nao foi possivel remover,medico nao cadastrado" <<endl;
+    try
+    {
+        consultorio.removerMedico(crm);
+    }
+    catch(const ExcecaoMedicoInexistente& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
     
-    // cout<<endl;
 }
 void removerPaciente(){
     int cpf;
     consultorio.imprimirListaPacientes();
     cout<<"Digite o CPF do paciente:";
     cin>>cpf;
-     if(consultorio.removerPaciente(cpf))
-        cout << "Removido com sucesso"<<endl;
-    else
-        cout << "Nao foi possivel remover,paciente nao cadastrado" <<endl;
+    try{
+        consultorio.removerPaciente(cpf);  
+    }catch(const ExcecaoPacienteInexistente& e){
+        cerr<<e.what()<<endl;
+    };
 }
 void removerConsulta(){
-    int cpf,crm;
-    cout<<"Entre com o cpf do paciente e o crm do medico para remover a consulta:";
-    cin>>cpf>>crm;
-     if(consultorio.removerConsulta(crm,cpf))
-        cout << "Removido com sucesso"<<endl;
-    else
-        cout << "Nao foi possivel remover,informacoes nao sao validas" <<endl;
+    int cpf;
+    std::string data = "0";
+    cout<<"Entre com o cpf do paciente e a data para remover a consulta:";
+    cin>>cpf;
+    try{
+        consultorio.removerConsulta(cpf);  
+    }catch(const ExcecaoConsultaInexistente& e){
+        cerr<<e.what()<<endl;
+    };
 }
+
 void cadastroPaciente(){
     std::string nome,endereco,telefone,identidade,relato,dataUltimaConsulta,medicacaoQueToma;
     char sexo;
     int cpf;
-    cout<<"Nome:";
+    Paciente paciente;
+    cout<<"Nome:";//TODO:Refatorar codigo duplicado
     getline(cin,nome);
-    cout<<"Sexo:";
-    cin>>sexo;
+    paciente.setNome(nome);
+    while (true)
+    {
+        try
+        {
+            cout<<"Sexo:";
+            cin>>sexo;
+            paciente.setSexo(sexo);
+            break;
+        }
+        catch(ExcecaoSexoInvalido& e)
+        {
+            std::cerr << e.what() << '\n';
+        }
+    }
     cin.ignore();
     cout<<"Endereco:";
     getline(cin,endereco);
+    paciente.setEndereco(endereco);
     cout<<"Identidade:";
-    getline(cin,identidade);
+    getline(cin,identidade);    
+    paciente.setIdentidade(identidade);
     cout<<"CPF:";
     cin>>cpf;
+    paciente.setCPF(cpf);
     cin.ignore();
     cout<<"Relato:";
     getline(cin,relato);
+    paciente.setRelato(relato);
     cout<<"Data da Ultima Consulta:";
     getline(cin,dataUltimaConsulta);
+    paciente.setDataUltimaConsulta(dataUltimaConsulta);
     cout<<"Medicacao que toma:";
     getline(cin,medicacaoQueToma);
-    Paciente paciente =  Paciente(nome,sexo,endereco,cpf,telefone,identidade,relato,dataUltimaConsulta,medicacaoQueToma);
+    paciente.setMedicacaoQueToma(medicacaoQueToma);
     consultorio.cadastrarPaciente(paciente);
 }
+
 void cadastroMedico(){
     std::string nome,endereco,telefone,identidade,especialidade;
     char sexo;
     int cpf,crm;
+    Medico medico =  Medico();
     cout<<"Nome:";
     getline(cin,nome);
-    cout<<"Sexo:";
-    cin>>sexo;
+    medico.setNome(nome);
+    while (true)
+    {
+        try
+        {
+            cout<<"Sexo:";
+            cin>>sexo;
+            medico.setSexo(sexo);
+            break;
+        }
+        catch(ExcecaoSexoInvalido& e)
+        {
+            std::cerr << e.what() << '\n';
+        }
+    }
     cin.ignore();
     cout<<"Endereco:";
     getline(cin,endereco);
+    medico.setEndereco(endereco);
     cout<<"Identidade:";
-    getline(cin,identidade);
+    getline(cin,identidade);    
+    medico.setIdentidade(identidade);
     cout<<"CPF:";
     cin>>cpf;
+    medico.setCPF(cpf);
     cin.ignore();
     cout<<"CRM:";
+    medico.setCRM(crm);
     cin>>crm;
     cin.ignore();
     cout<<"Especialidade:";
     getline(cin,especialidade);
-    Medico medico =  Medico(nome,sexo,endereco,cpf,telefone,identidade,crm,especialidade);
+    medico.setEspecialidade(especialidade);
     consultorio.cadastrarMedico(medico);
 }
 void cadastroConsulta(){

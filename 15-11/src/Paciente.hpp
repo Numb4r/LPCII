@@ -18,7 +18,7 @@ public:
     void setMedicacaoQueToma(std::string medicacaoQueToma);
 
     void imprimir();
-    Paciente(std::string nome,char sexo,std::string endereco,int cpf,std::string telefone,std::string identidade,std::string relato,std::string dataUltimaConsulta,std::string medicacaoQueToma);
+    explicit Paciente(std::string nome,char sexo,std::string endereco,int cpf,std::string telefone,std::string identidade,std::string relato,std::string dataUltimaConsulta,std::string medicacaoQueToma);
     Paciente();
 };
 #endif

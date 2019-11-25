@@ -6,28 +6,26 @@ void Consultorio::cadastrarPaciente(Paciente paciente){
 void Consultorio::cadastrarMedico(Medico medico){
     vetMedicos.push_back(medico);
 }
-bool Consultorio::removerPaciente(int CPF){
-    
+void Consultorio::removerPaciente(int CPF){
+    bool removed = false;
     for (unsigned long int i = 0; i < vetPacientes.size(); i++)
     {
         if(vetPacientes.at(i).getCPF() == CPF){
             vetPacientes.erase(vetPacientes.begin()+i) ;
-            while (this->removerConsultaByCPF(CPF)){}
-            return true;
+            removed = !removed;   
         }
     }
-    return false;
+    if(!removed) throw ExcecaoPacienteInexistente();
 }
-bool Consultorio::removerMedico(int CRM){
-    unsigned long int i = 0;
-    for(i = 0; i< vetMedicos.size();i++){
+void Consultorio::removerMedico(int CRM){
+    bool removed = false;
+    for(unsigned long int i = 0; i< vetMedicos.size();i++){
         if(vetMedicos.at(i).getCRM() == CRM){
             vetMedicos.erase(vetMedicos.begin()+1);
-            while (this->removerConsultaByCRM(CRM)){}
-            return true;
+            removed = !removed;    
         }
     }
-    return false;
+    if(!removed) throw ExcecaoMedicoInexistente() ;
 }
 void Consultorio::cadastrarConsulta(Consulta consulta){
     if (this->vetMedicos.size() != 0 || this->vetPacientes.size() != 0)
@@ -35,40 +33,8 @@ void Consultorio::cadastrarConsulta(Consulta consulta){
     else
         cout<<"Nao foi possivel cadastrar a consulta,nao existem pacientes ou medicos cadastrados"<<endl;
 }
-bool Consultorio::removerConsultaByCPF(int cpf,std::string data ){
-    
-    for (unsigned long int i = 0; i < vetConsulta.size(); i++)
-    {
-        if(vetConsulta.at(i).getPaciente().getCPF() == cpf){
-            if (vetConsulta.at(i).getData() == data)
-            {
-                vetConsulta.erase(vetConsulta.begin()+1);    
-                return true;
-            }else{
-                vetConsulta.erase(vetConsulta.begin()+1);
-                return true;
-            }
-        }
-    }
-    return false;
-}
-bool Consultorio::removerConsultaByCRM(int crm,std::string data ){
-    for (unsigned long int i = 0; i < vetConsulta.size(); i++)
-    {
-        if(vetConsulta.at(i).getMedico().getCRM() == crm){
-            if (vetConsulta.at(i).getData() == data)
-            {
-                vetConsulta.erase(vetConsulta.begin()+1);    
-                return true;
-            }else{
-                vetConsulta.erase(vetConsulta.begin()+1);
-                return true;
-            }
-        }
-    }
-    return false;
 
-}
+
 void Consultorio::imprimirListaPacientes(){
     for (long unsigned int i = 0; i < vetPacientes.size(); i++)
     {
@@ -121,14 +87,15 @@ Medico Consultorio::getMedicoByCRM(int crm){
             return vetMedicos.at(i);     
     return Medico();
 }
-bool Consultorio::removerConsulta(int crm,int cpf){
+void Consultorio::removerConsulta(int cpf,std::string data){
+    bool removed = false;
     for (long unsigned int i = 0; i < vetConsulta.size(); i++){
-        if(vetConsulta.at(i).getMedico().getCRM() == crm && vetConsulta.at(i).getPaciente().getCPF() == cpf){
+        if(vetConsulta.at(i).getPaciente().getCPF() == cpf &&  (data == "0" || vetConsulta.at(i).getData() == data )){
             vetConsulta.erase(vetConsulta.begin()+i);
-            return true;
+            removed = !removed;   
         }
     }
-    return false;
+    if(!removed) throw ExcecaoConsultaInexistente(cpf,data) ;
 }
 //Setters
 void Consultorio::setNome(std::string nome){

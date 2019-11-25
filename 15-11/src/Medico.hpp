@@ -16,7 +16,11 @@ class Medico : public Pessoa{
         void setEspecialidade(std::string especialidade);
 
         void imprimir();
+        
+        
+        
         Medico(std::string nome,char sexo,std::string endereco,int cpf,std::string telefone,std::string identidade,int CRM,std::string especialidade);
         Medico();
+        
 };
 #endif
