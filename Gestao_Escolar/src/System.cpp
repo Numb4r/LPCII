@@ -24,6 +24,15 @@ Aluno* System::getAlunoByIdReference(int id){
 Professor* System::getProfessorByIdReference(int id){
     return &professores.at(id);
 }
+void System::removerAluno(int id){
+    alunos.erase(alunos.begin()+id);
+}
+void System::removerProfessor(int id){
+    professores.erase(professores.begin()+id);
+}
+void System::removerDisciplina(int id){
+    disciplinas.erase(disciplinas.begin()+id);
+}
 void System::imprimirProfessores(bool indices){
     cout<<"Professores: "<<endl;
     for (size_t i = 0; i < professores.size(); i++)
