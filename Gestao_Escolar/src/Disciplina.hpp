@@ -5,7 +5,7 @@
 #include "Professor.hpp"
 #include "Aluno.hpp"
 #include <vector>
-#include <ExceptionOutOfRange.hpp>
+#include "ExceptionOutOfRange.hpp"
 
 using namespace std;
 
