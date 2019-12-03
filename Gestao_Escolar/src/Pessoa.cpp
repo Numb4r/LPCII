@@ -79,7 +79,7 @@ void Pessoa::setCpf(int cpf)
 }
 void Pessoa::setSexo(char sexo)
 {
-    sexo == toupper(sexo);
+    sexo = toupper(sexo);
     if(sexo == 'M' || sexo == 'F'){
         this->sexo = sexo;
     }else{
