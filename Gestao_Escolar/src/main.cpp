@@ -142,6 +142,7 @@ Professor cadastrarProfessor(){
     return professor;
 }
 Disciplina cadastrarDisciplina(){
+    cin.ignore();
     string codigostr = "2019" + to_string(rand()%1000000);
     int codigo = atoi(codigostr.c_str());
     unsigned long int id;
@@ -171,6 +172,7 @@ Disciplina cadastrarDisciplina(){
             cout<<"\nEntre com o aluno: ";
             cin>>id;
             if(id<sistema.getVectorAlunos().size())break;
+            
         }
 
         disciplina.cadastrarAluno(sistema.getAlunoByIdReference(id));
@@ -290,11 +292,11 @@ void menu(){
             sistema.cadastrarAluno(cadastrarAluno());
             break;
         case 3:
-            // if(sistema.getVectorProfessores().size() == 0 || sistema.getVectorAlunos().size()==0){
-                // cout<<"Impossivel cadastrar disciplina"<<endl;
-            // }else{
+            if(sistema.getVectorProfessores().size() == 0 || sistema.getVectorAlunos().size()==0){
+                cout<<"Impossivel cadastrar disciplina"<<endl;
+            }else{
                 sistema.cadastrarDisciplina(cadastrarDisciplina());
-            // }
+            }
             break;
         case 4:
             removerProfessor();

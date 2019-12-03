@@ -40,11 +40,11 @@ void Disciplina::setcodigoDisciplina(int codigoDisciplina)
 {
     this->codigoDisciplina = codigoDisciplina;
 }
-void Disciplina::setProfessor(Professor *professor){
-    this->professor = *professor;
+void Disciplina::setProfessor(Professor professor){
+    this->professor = professor;
 }
-void Disciplina::cadastrarAluno(Aluno *aluno){
-    this->alunos.push_back(*aluno);
+void Disciplina::cadastrarAluno(Aluno aluno){
+    this->alunos.push_back(aluno);
 }
 
 
@@ -56,6 +56,7 @@ Aluno Disciplina::getAlunoMatricula(string matricula){
 }
 void Disciplina::imprimir()
 {    
+    
     cout << "Nome da Disciplina: " << nomeDisciplina << endl;
     cout << "Código da Disciplina: " << codigoDisciplina << endl;
     cout << "Professor: "<<professor.getNome()<<endl;

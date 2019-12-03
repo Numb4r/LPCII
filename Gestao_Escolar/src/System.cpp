@@ -18,11 +18,11 @@ vector<Professor> System::getVectorProfessores(){
 vector<Disciplina> System::getVectorDisciplina(){
     return disciplinas;
 }
-Aluno* System::getAlunoByIdReference(int id){
-    return  &alunos.at(id);
+Aluno System::getAlunoByIdReference(int id){
+    return  alunos.at(id);
 }
-Professor* System::getProfessorByIdReference(int id){
-    return &professores.at(id);
+Professor System::getProfessorByIdReference(int id){
+    return professores.at(id);
 }
 void System::removerAluno(int id){
     alunos.erase(alunos.begin()+id);

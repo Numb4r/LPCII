@@ -31,8 +31,8 @@ public:
     //Setters
     void setnomeDisciplina(string disciplina);
     void setcodigoDisciplina(int codigoDisciplina);
-    void setProfessor(Professor *professor);
-    void cadastrarAluno(Aluno *aluno);
+    void setProfessor(Professor professor);
+    void cadastrarAluno(Aluno aluno);
 
     void imprimir();
 };

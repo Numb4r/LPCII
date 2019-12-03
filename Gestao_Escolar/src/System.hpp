@@ -20,8 +20,8 @@ class System{
         vector<Aluno> getVectorAlunos();
         vector<Professor> getVectorProfessores();
         vector<Disciplina> getVectorDisciplina();
-        Aluno* getAlunoByIdReference(int id);
-        Professor* getProfessorByIdReference(int id);
+        Aluno getAlunoByIdReference(int id);
+        Professor getProfessorByIdReference(int id);
         void imprimirProfessores(bool indices =  false);
         void imprimirDisciplinas(bool indices = false);
         void imprimirAlunos(bool indices = false);
