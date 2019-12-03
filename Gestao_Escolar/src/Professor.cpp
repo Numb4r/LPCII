@@ -5,6 +5,7 @@
 using namespace std;
 
 //Construtores
+Professor::Professor(){}
 Professor::Professor(string formacao, string admissao, string nome, string endereco, string telefone, string email, string dataNascimento, int cpf, char sexo)
     : Pessoa(nome, endereco, telefone, email, dataNascimento, cpf, sexo)
 {

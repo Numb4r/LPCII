@@ -7,7 +7,9 @@
 using namespace std;
 
 //Construtores
-Disciplina::Disciplina(string nomeDisciplina,int codigoDisciplina)
+
+Disciplina::Disciplina(){}
+Disciplina::Disciplina(string nomeDisciplina,int codigoDisciplina) 
 {
     this->nomeDisciplina = nomeDisciplina;
     this->codigoDisciplina = codigoDisciplina;
@@ -22,12 +24,11 @@ int Disciplina::getcodigoDisciplina()
 {
     return codigoDisciplina;
 }
-
-void Disciplina::setProfessor(Professor professor){
-    this->professor = professor;
+Professor Disciplina::getProfessor(){
+    return professor;
 }
-void Disciplina::cadastrarAluno(Aluno aluno){
-    this->alunos.push_back(aluno);
+vector<Aluno> Disciplina::getTodosAlunos(){
+    return alunos;
 }
 
 //Setters
@@ -39,20 +40,19 @@ void Disciplina::setcodigoDisciplina(int codigoDisciplina)
 {
     this->codigoDisciplina = codigoDisciplina;
 }
+void Disciplina::setProfessor(Professor professor){
+    this->professor = professor;
+}
+void Disciplina::cadastrarAluno(Aluno aluno){
+    this->alunos.push_back(aluno);
+}
 
-Professor Disciplina::getProfessor(){
-    return professor;
-}
-vector<Aluno> Disciplina::getTodosAlunos(){
-    return alunos;
-}
+
 Aluno Disciplina::getAlunoMatricula(string matricula){
     for(auto& e:alunos){
         if(e.getMatricula() == matricula)   return e;
     }
-
     throw ExceptionOutOfRange();
-    
 }
 void Disciplina::imprimir()
 {    
