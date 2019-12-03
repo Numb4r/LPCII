@@ -9,6 +9,21 @@ void System::cadastrarAluno(Aluno aluno){
 void System::cadastrarProfessor(Professor professor){
     this->professores.push_back(professor);
 }
+vector<Aluno> System::getVectorAlunos(){
+    return alunos;
+}
+vector<Professor> System::getVectorProfessores(){
+    return professores;
+}
+vector<Disciplina> System::getVectorDisciplina(){
+    return disciplinas;
+}
+Aluno* System::getAlunoByIdReference(int id){
+    return  &alunos.at(id);
+}
+Professor* System::getProfessorByIdReference(int id){
+    return &professores.at(id);
+}
 void System::imprimirProfessores(bool indices){
     cout<<"Professores: "<<endl;
     for (size_t i = 0; i < professores.size(); i++)
