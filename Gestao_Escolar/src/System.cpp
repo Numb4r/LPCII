@@ -31,5 +31,6 @@ System::System(){
 
 }
 System::System(string nome,string endereco){
-
+    this->nome = nome;
+    this->endereco = endereco;
 }
