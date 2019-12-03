@@ -9,23 +9,43 @@ void System::cadastrarAluno(Aluno aluno){
 void System::cadastrarProfessor(Professor professor){
     this->professores.push_back(professor);
 }
-void System::imprimirProfessores(){
+void System::imprimirProfessores(bool indices){
     cout<<"Professores: "<<endl;
-    for(auto& e:professores){
-        e.imprimir();
+    for (size_t i = 0; i < professores.size(); i++)
+    {
+        if(indices){
+             cout<<i<<" "<<professores.at(i).getNome();
+        }else{
+            professores.at(i).imprimir();
+        }
     }
+    
 }
-void System::imprimirDisciplinas(){
+void System::imprimirDisciplinas(bool indices){
     cout<<"Disciplinas: " <<endl;
-    for(auto& e:professores){
-        e.imprimir();
+    for (size_t i = 0; i < disciplinas.size(); i++)
+    {
+        if (indices)
+        {
+            cout <<i<<" "<<disciplinas.at(i).getnomeDisciplina();
+        }else{
+            disciplinas.at(i).imprimir();
+        }
+        
     }
+    
 }
-void System::imprimirAlunos(){
+void System::imprimirAlunos(bool indices){
     cout<<"Alunos: "<<endl;
-    for(auto& e:alunos){
-        e.imprimir();
+    for (size_t i = 0; i < alunos.size(); i++)
+    {
+        if(indices){
+            cout<< i << " "<<alunos.at(i).getNome();
+        }else{
+            alunos.at(i).imprimir();
+        }
     }
+    
 }
 System::System(){
 

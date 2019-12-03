@@ -18,9 +18,9 @@ class System{
         void cadastrarAluno(Aluno aluno);
         void cadastrarProfessor(Professor professor);
 
-        void imprimirProfessores();
-        void imprimirDisciplinas();
-        void imprimirAlunos();
+        void imprimirProfessores(bool indices =  false);
+        void imprimirDisciplinas(bool indices = false);
+        void imprimirAlunos(bool indices = false);
 
         System();
         System(string nome,string endereco);
