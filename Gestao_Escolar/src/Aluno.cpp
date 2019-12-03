@@ -5,6 +5,7 @@
 using namespace std;
 
 //Construtores
+Aluno::Aluno(){}
 Aluno::Aluno(string matricula, int serie, string nome, string endereco, string telefone, string email, string dataNascimento, int cpf, char sexo)
     : Pessoa(nome, endereco, telefone, email, dataNascimento, cpf, sexo)
 {
