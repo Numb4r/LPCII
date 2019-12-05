@@ -59,9 +59,10 @@ void System::imprimirProfessores(bool indices){
     for (size_t i = 0; i < professores.size(); i++)
     {
         if(indices){
-             cout<<i<<" "<<professores.at(i).getNome()<<endl;;
+             cout<<i<<" "<<professores.at(i).getNome()<<"\n"<<endl;;
         }else{
             professores.at(i).imprimir();
+            cout<<"=====================================================\n\n";
         }
     }
     
@@ -72,9 +73,10 @@ void System::imprimirDisciplinas(bool indices){
     {
         if (indices)
         {
-            cout <<i<<" "<<disciplinas.at(i).getnomeDisciplina();
+            cout <<i<<" "<<disciplinas.at(i).getnomeDisciplina()<<"\n"<<endl;
         }else{
             disciplinas.at(i).imprimir();
+            cout<<"=====================================================\n\n";
         }
         
     }
@@ -85,9 +87,10 @@ void System::imprimirAlunos(bool indices){
     for (size_t i = 0; i < alunos.size(); i++)
     {
         if(indices){
-            cout<< i << " "<<alunos.at(i).getNome();
+            cout<< i << " "<<alunos.at(i).getNome()<<"\n"<<endl;
         }else{
             alunos.at(i).imprimir();
+            cout<<"=====================================================\n\n";
         }
     }
     
