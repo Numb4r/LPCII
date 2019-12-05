@@ -33,6 +33,7 @@ public:
     void setcodigoDisciplina(int codigoDisciplina);
     void setProfessor(Professor professor);
     void cadastrarAluno(Aluno aluno);
+    void removerAluno(int id);
 
     void imprimir();
 };

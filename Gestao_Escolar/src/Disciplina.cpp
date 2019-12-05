@@ -46,6 +46,9 @@ void Disciplina::setProfessor(Professor professor){
 void Disciplina::cadastrarAluno(Aluno aluno){
     this->alunos.push_back(aluno);
 }
+void Disciplina::removerAluno(int id){
+    alunos.erase(alunos.begin()+id);
+}
 
 
 Aluno Disciplina::getAlunoMatricula(string matricula){
@@ -60,7 +63,7 @@ void Disciplina::imprimir()
     cout << "Nome da Disciplina: " << nomeDisciplina << endl;
     cout << "Código da Disciplina: " << codigoDisciplina << endl;
     cout << "Professor: "<<professor.getNome()<<endl;
-    cout<<"Alunos: "<<endl;
+    cout << "Alunos: "<<endl;
     for(auto& e: alunos){
         cout<<e.getNome()<<endl;
     }
