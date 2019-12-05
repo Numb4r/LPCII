@@ -25,10 +25,31 @@ Professor System::getProfessorByIdReference(int id){
     return professores.at(id);
 }
 void System::removerAluno(int id){
+    Aluno aluno = alunos.at(id);
     alunos.erase(alunos.begin()+id);
+    for(auto &&var : disciplinas)
+    {
+        for (size_t i = 0; i < var.getTodosAlunos().size(); i++)
+        {
+            if(var.getTodosAlunos().at(i).getCpf() == aluno.getCpf()){
+                var.removerAluno(i);
+            }
+        }   
+    }
+    
 }
 void System::removerProfessor(int id){
+    Professor professor = professores.at(id);
     professores.erase(professores.begin()+id);
+    for (size_t i = 0; i < disciplinas.size(); i++)
+    {
+        if (disciplinas.at(i).getProfessor().getCpf() == professor.getCpf())
+        {
+            disciplinas.erase(disciplinas.begin()+i);
+        }
+        
+    }
+    
 }
 void System::removerDisciplina(int id){
     disciplinas.erase(disciplinas.begin()+id);
@@ -38,7 +59,7 @@ void System::imprimirProfessores(bool indices){
     for (size_t i = 0; i < professores.size(); i++)
     {
         if(indices){
-             cout<<i<<" "<<professores.at(i).getNome();
+             cout<<i<<" "<<professores.at(i).getNome()<<endl;;
         }else{
             professores.at(i).imprimir();
         }
