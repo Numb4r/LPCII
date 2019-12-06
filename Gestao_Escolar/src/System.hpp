@@ -28,6 +28,7 @@ class System{
         void removerAluno(int id);
         void removerProfessor(int id);
         void removerDisciplina(int id);
+        bool conferirMatricula(string matricula);
 
         System();
         System(string nome,string endereco);

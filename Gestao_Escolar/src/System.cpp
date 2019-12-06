@@ -38,6 +38,12 @@ void System::removerAluno(int id){
     }
     
 }
+bool System::conferirMatricula(string matricula){
+    for(auto var: alunos){
+        if (var.getMatricula()==matricula)return false;
+    }
+    return true;
+}
 void System::removerProfessor(int id){
     Professor professor = professores.at(id);
     professores.erase(professores.begin()+id);
