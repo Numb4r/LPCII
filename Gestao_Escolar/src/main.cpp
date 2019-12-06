@@ -371,8 +371,8 @@ void menu(){
 }
 
 int main(){
-    sistema.cadastrarAluno(Aluno("1",3,"Yuri","cu","00","@","312312",0,'M'));
-    sistema.cadastrarProfessor(Professor("cu","co","L","dd","dd","@","dasda",3,'F'));
+    // sistema.cadastrarAluno(Aluno("1",3,"Yuri","cu","00","@","312312",0,'M'));
+    // sistema.cadastrarProfessor(Professor("cu","co","L","dd","dd","@","dasda",3,'F'));
     srand(time(nullptr));    
     menu();
 

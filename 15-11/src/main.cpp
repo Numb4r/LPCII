@@ -88,7 +88,7 @@ void cadastroPaciente(){
     char sexo;
     int cpf;
     Paciente paciente;
-    cout<<"Nome:";//TODO:Refatorar codigo duplicado
+    cout<<"Nome:";
     getline(cin,nome);
     paciente.setNome(nome);
     while (true)

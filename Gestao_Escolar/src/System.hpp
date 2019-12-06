@@ -10,7 +10,7 @@ class System{
         string nome;
         string endereco;
         vector<Professor> professores;
-        vector<Aluno> alunos;   //TODO:Passar o endereco de memoria para que a remocao seja dinamica
+        vector<Aluno> alunos;   
         vector<Disciplina> disciplinas;
 
     public:
