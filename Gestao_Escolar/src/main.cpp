@@ -177,7 +177,7 @@ Disciplina cadastrarDisciplina(){
     {
         if (sistema.getVectorAlunos().size()>0)
         {
-            while (cout<<"Deseja acrescentar um aluno?\n1.Sim\n2.Nao" && !(cin >> id)) {
+            while (cout<<"Deseja acrescentar um aluno?\n1.Sim\n2.Nao\n" && !(cin >> id)) {
                 cin.clear(); //clear bad input flag
                 cin.ignore(numeric_limits<std::streamsize>::max(), '\n'); //discard input
                 cerr << "Numero invalido!\n";
@@ -410,8 +410,7 @@ void menu(){
 }
 
 int main(){
-    // sistema.cadastrarAluno(Aluno("1",3,"Yuri","cu","00","@","312312",0,'M'));
-    // sistema.cadastrarProfessor(Professor("cu","co","L","dd","dd","@","dasda",3,'F'));
+    
     srand(time(nullptr));    
     menu();
 
