@@ -1,10 +1,11 @@
 #include <iostream>
 #include <cstdlib>
+#include <limits>
 #include "Pessoa.hpp"
 #include "Disciplina.hpp"
 #include "System.hpp"
 using namespace std;
-
+const string YEAR = "2019";
 System init(){
     string nome,endereco;
     cout<<"\tConfiguracoes iniciais"<<endl;
@@ -42,8 +43,12 @@ Aluno cadastrarAluno(){
             std::cerr << e.what() << '\n';
         }
     }
-    cout<<"CPF: ";
-    cin>>cpf;
+    while (std::cout << "CPF: " && !(cin >> cpf)) {
+        cin.clear(); //clear bad input flag
+        cin.ignore(numeric_limits<std::streamsize>::max(), '\n'); //discard input
+        cout << "CPF invalido!\n";
+    }
+    
     cin.ignore();
     aluno.setCpf(cpf);
     cout<<"Data de nascimento: ";
@@ -69,10 +74,17 @@ Aluno cadastrarAluno(){
             std::cerr << e.what() << '\n';
         }
     }
-    cout<<"Serie: ";
-    cin>>serie;
+    while (std::cout << "Serie: " && !(cin >> serie)) {
+        cin.clear(); //clear bad input flag
+        cin.ignore(numeric_limits<std::streamsize>::max(), '\n'); //discard input
+        cerr << "Serie invalida!\n";
+    }
     aluno.setSerie(serie);
-    matricula = "2019" + to_string(rand()%1000000);
+    do
+    {
+        matricula = YEAR + to_string(rand()%1000000);
+    } while (!sistema.conferirMatricula(matricula));
+    
     aluno.setMatricula(matricula);
     return aluno;
 }
@@ -100,8 +112,11 @@ Professor cadastrarProfessor(){
             std::cerr << e.what() << '\n';
         }
     }
-    cout<<"CPF: ";
-    cin>>cpf;
+    while (std::cout << "CPF: " && !(cin >> cpf)) {
+        cin.clear(); //clear bad input flag
+        cin.ignore(numeric_limits<std::streamsize>::max(), '\n'); //discard input
+        cout << "CPF invalido!\n";
+    }
     cin.ignore();
     professor.setCpf(cpf);
     cout<<"Data de nascimento: ";
@@ -137,7 +152,7 @@ Professor cadastrarProfessor(){
 }
 Disciplina cadastrarDisciplina(){
     cin.ignore();
-    string codigostr = "2019" + to_string(rand()%1000000);
+    string codigostr = YEAR + to_string(rand()%1000000);
     int codigo = atoi(codigostr.c_str());
     unsigned long int id;
     string nome;
@@ -149,8 +164,11 @@ Disciplina cadastrarDisciplina(){
     sistema.imprimirProfessores(true);
     while (true)
     {
-        cout<<"\nEntre com o professor da materia: ";
-        cin>>id;
+        while (cout<<"\nEntre com o professor da materia: " && !(cin >> id)) {
+            cin.clear(); //clear bad input flag
+            cin.ignore(numeric_limits<std::streamsize>::max(), '\n'); //discard input
+            cerr << "Numero invalido!\n";
+        }
         if (id < sistema.getVectorProfessores().size()) break;
     }
     disciplina.setProfessor(sistema.getProfessorByIdReference(id));
@@ -159,15 +177,21 @@ Disciplina cadastrarDisciplina(){
     {
         if (sistema.getVectorAlunos().size()>0)
         {
-            cout<<"Deseja acrescentar um aluno?"<<endl;
-            cout<<"1.Sim\n2.Nao"<<endl;
-            cin>>id;    
+            while (cout<<"Deseja acrescentar um aluno?\n1.Sim\n2.Nao" && !(cin >> id)) {
+                cin.clear(); //clear bad input flag
+                cin.ignore(numeric_limits<std::streamsize>::max(), '\n'); //discard input
+                cerr << "Numero invalido!\n";
+            }
             if(id!=1)break;
             sistema.imprimirAlunos(true);
             while (true)
             {
-                cout<<"\n\nEntre com o aluno: ";
-                cin>>id;
+                
+                while (cout<<"Entre com o aluno: " && !(cin >> id)) {
+                    cin.clear(); //clear bad input flag
+                    cin.ignore(numeric_limits<std::streamsize>::max(), '\n'); //discard input
+                    cerr << "Numero invalido!\n";
+                }
                 if(id<sistema.getVectorAlunos().size())break;
                 
             }
@@ -184,8 +208,13 @@ void menuCadastro(){
     cout<<"\n\n1.Cadastrar Aluno"<<endl;
     cout<<"2.Cadastrar Professor"<<endl;
     cout<<"3.Cadastrar Disciplina"<<endl;
-    cout<<"~>";
-    cin>>op;
+    cout<<"0.Voltar"<<endl;
+    
+    while (cout<<"~>"&&!(cin >> op)) {
+        cin.clear(); //clear bad input flag
+        cin.ignore(numeric_limits<std::streamsize>::max(), '\n'); //discard input
+        cerr << "Numero invalido!\n";
+    }
     switch (op)
     {
     case 1:
@@ -295,8 +324,13 @@ void menuRemocao(){
     cout<<"\n\n1.Remover Aluno"<<endl;
     cout<<"2.Remover professor"<<endl;
     cout<<"3.Remover Disciplina"<<endl;
-    cout<<"~>";
-    cin>>op;
+    cout<<"0.Voltar"<<endl;
+    
+    while (cout<<"~>"&&!(cin >> op)) {
+        cin.clear(); //clear bad input flag
+        cin.ignore(numeric_limits<std::streamsize>::max(), '\n'); //discard input
+        cerr << "Numero invalido!\n";
+    }
     switch (op)
     {
     case 1:
@@ -321,8 +355,13 @@ void menuImpressao(){
     cout<<"\n\n1.Imprimir todos os alunos"<<endl;
     cout<<"2.Imprimir todos os professores"<<endl;
     cout<<"3.Imprimir todas as disciplinas"<<endl;
-    cout<<"~>";
-    cin>>op;
+    cout<<"0.Voltar"<<endl;
+    
+    while (cout<<"~>"&&!(cin >> op)) {
+        cin.clear(); //clear bad input flag
+        cin.ignore(numeric_limits<std::streamsize>::max(), '\n'); //discard input
+        cerr << "Numero invalido!\n";
+    }
     switch (op)
     {
     case 1:
